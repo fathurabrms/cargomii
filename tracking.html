@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracking Pengiriman | Cargomii</title>
+  <meta name="description" content="Minta informasi status pengiriman Cargomii dengan nomor resi melalui tim marketing WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif']},colors:{navy:'#071B3A',blue:'#0757B8',green:'#39B54A'}}}}</script>
+</head>
+<body class="bg-slate-50 font-sans text-navy">
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6 lg:px-8">
+      <a href="index.html" aria-label="Beranda Cargomii"><img src="images/logo_cargomii_header_cropped.png" alt="Cargomii" class="h-11 w-auto"></a>
+      <nav class="hidden items-center gap-4 lg:flex" aria-label="Menu utama">
+        <a href="index.html" class="text-sm font-semibold hover:text-blue">Beranda</a>
+        <a href="tentang_kami.html" class="text-sm font-semibold hover:text-blue">Tentang Kami</a>
+        <a href="layanan.html" class="text-sm font-semibold hover:text-blue">Layanan</a>
+        <a href="cabang.html" class="text-sm font-semibold hover:text-blue">Cabang</a>
+        <a href="tarif.html" class="text-sm font-semibold hover:text-blue">Tarif</a>
+        <a href="berita.html" class="text-sm font-semibold hover:text-blue">Berita</a>
+        <a href="galeri.html" class="text-sm font-semibold hover:text-blue">Galeri</a>
+        <a href="kontak.html" class="text-sm font-semibold hover:text-blue">Kontak</a>
+      </nav>
+      <div class="hidden items-center gap-2 lg:flex">
+        <a href="kontak.html" class="rounded-xl bg-navy px-4 py-3 text-sm font-bold text-white hover:bg-blue">Minta Penawaran</a>
+        <a href="tracking.html" aria-current="page" class="rounded-xl border border-navy bg-navy px-4 py-3 text-sm font-bold text-white">Tracking</a>
+      </div>
+      <button id="menuButton" type="button" class="rounded-xl border border-slate-200 p-2.5 lg:hidden" aria-label="Buka menu" aria-controls="mobileMenu" aria-expanded="false"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+    <nav id="mobileMenu" class="mx-auto hidden max-w-7xl flex-col gap-1 px-5 pb-5 lg:hidden" aria-label="Menu seluler">
+      <a href="index.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Beranda</a><a href="tentang_kami.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Tentang Kami</a><a href="layanan.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Layanan</a><a href="cabang.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Cabang</a><a href="tarif.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Tarif</a><a href="berita.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Berita</a><a href="galeri.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Galeri</a><a href="kontak.html" class="rounded-xl px-4 py-2.5 hover:bg-slate-100">Kontak</a><a href="kontak.html" class="mt-2 rounded-xl bg-navy px-4 py-3 text-center font-bold text-white">Minta Penawaran</a><a href="tracking.html" aria-current="page" class="mt-2 rounded-xl border border-navy px-4 py-3 text-center font-bold">Tracking</a>
+    </nav>
+  </header>
+  <main>
+    <section class="bg-navy px-5 py-20 text-white sm:px-6 lg:py-24">
+      <div class="mx-auto max-w-5xl"><p class="mb-4 text-sm font-bold uppercase tracking-widest text-green">Informasi pengiriman</p><h1 class="max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">Cek Status Pengiriman Cargomii</h1><p class="mt-5 max-w-2xl text-lg leading-8 text-slate-200">Punya nomor resi atau referensi pengiriman? Kirim detailnya ke tim Cargomii lewat WhatsApp untuk meminta pembaruan status.</p></div>
+    </section>
+    <section class="mx-auto grid max-w-5xl gap-8 px-5 py-14 sm:px-6 lg:grid-cols-[1.25fr_.75fr] lg:py-20">
+      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-navy/5 sm:p-9">
+        <h2 class="text-2xl font-bold">Minta Update Status</h2><p class="mt-2 text-slate-600">Isi detail pengiriman. Pesan akan disiapkan untuk WhatsApp; tim marketing akan membantu mengecek statusnya.</p>
+        <form id="trackingForm" class="mt-8 space-y-5">
+          <div><label for="reference" class="mb-2 block text-sm font-semibold">Nomor resi / referensi pengiriman <span class="text-red-600">*</span></label><input id="reference" name="reference" required maxlength="80" autocomplete="off" placeholder="Contoh: nomor resi dari Cargomii" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue focus:ring-2 focus:ring-blue/20"></div>
+          <div><label for="customer" class="mb-2 block text-sm font-semibold">Nama pengirim atau penerima <span class="text-red-600">*</span></label><input id="customer" name="customer" required maxlength="100" autocomplete="name" placeholder="Nama yang tercatat pada pengiriman" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue focus:ring-2 focus:ring-blue/20"></div>
+          <div><label for="marketing" class="mb-2 block text-sm font-semibold">Hubungi marketing</label><select id="marketing" name="marketing" class="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-blue focus:ring-2 focus:ring-blue/20"><option value="6285310845304">Pena Cargomii</option><option value="628119695360">Nisa Cargomii</option><option value="628111819123">Okta Cargomii</option><option value="6281111829825">Sabila Cargomii</option><option value="628111378365">Jesika Cargomii</option><option value="628111368365">Amel Cargomii</option></select></div>
+          <button type="submit" class="w-full rounded-xl bg-green px-6 py-4 font-bold text-white transition hover:brightness-95">Tanya Status via WhatsApp</button>
+        </form>
+      </div>
+      <aside class="self-start rounded-3xl border border-slate-200 bg-white p-7"><h2 class="text-xl font-bold">Siapkan sebelum menghubungi</h2><ol class="mt-5 list-decimal space-y-3 pl-5 leading-7 text-slate-600"><li>Nomor resi atau referensi dari dokumen pengiriman.</li><li>Nama pengirim atau penerima yang tercatat.</li><li>Informasi tambahan seperti tujuan dan tanggal kirim, bila ada.</li></ol><p class="mt-6 rounded-xl bg-blue/5 p-4 text-sm leading-6 text-slate-700">Halaman ini mengirim permintaan cek status ke WhatsApp. Status pengiriman diberikan oleh tim Cargomii setelah mereka memeriksa data Anda.</p></aside>
+    </section>
+  </main>
+  <footer class="bg-navy px-5 py-8 text-center text-sm text-slate-300">Cargomii · Cargo dan logistik Indonesia</footer>
+  <script>
+    const menuButton=document.getElementById('menuButton');const mobileMenu=document.getElementById('mobileMenu');menuButton.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('hidden');mobileMenu.classList.toggle('flex',!open);menuButton.setAttribute('aria-expanded',String(!open));});
+    document.getElementById('trackingForm').addEventListener('submit',event=>{event.preventDefault();const reference=document.getElementById('reference').value.trim();const customer=document.getElementById('customer').value.trim();if(!reference||!customer)return;const number=document.getElementById('marketing').value;const message=`Halo Cargomii, saya ingin menanyakan status pengiriman.\nNomor resi/referensi: ${reference}\nNama pengirim/penerima: ${customer}\nMohon dibantu cek statusnya. Terima kasih.`;window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`,'_blank','noopener,noreferrer');});
+  </script>
+</body>
+</html>

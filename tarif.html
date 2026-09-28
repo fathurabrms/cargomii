@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Informasi tarif pengiriman Cargomii untuk layanan kapal cepat Pelni dan kapal cargo reguler."
+  />
+
+  <title>Tarif Pengiriman | Cargomii</title>
+
+  <link rel="icon" type="image/png" href="images/cropped-Cargomii-Favicon-300x300.png">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+          colors: {
+            navy: "#071B3A",
+            blue: "#0757B8",
+            green: "#4BC51B",
+            ink: "#0B1220",
+            mist: "#F5F8FC"
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #4BC51B;
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .tariff-card {
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .tariff-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(7, 27, 58, 0.09);
+    }
+
+    .table-wrap {
+      scrollbar-width: thin;
+    }
+
+    .tariff-table {
+      min-width: 760px;
+    }
+
+    .tariff-table th {
+      white-space: nowrap;
+    }
+
+    .tariff-table tbody tr {
+      transition: background 0.2s ease;
+    }
+
+    .tariff-table tbody tr:hover {
+      background: #f5f8fc;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #0757B8;
+      box-shadow: 0 0 0 3px rgba(7, 87, 184, 0.10);
+    }
+
+    .service-tab {
+      transition: all 0.25s ease;
+    }
+
+    .service-tab.active {
+      background: #071B3A;
+      color: white;
+      box-shadow: 0 10px 25px rgba(7, 27, 58, 0.15);
+    }
+
+    .hidden-table {
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-ink antialiased">
+
+  <!-- =========================================================
+       NAVBAR
+  ========================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="h-20 flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center">
+          <img
+            src="images/logo_cargomii_header_cropped.png"
+            alt="Cargomii"
+            class="h-11 w-auto object-contain"
+          />
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-4">
+
+          <a
+            href="index.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Beranda
+          </a>
+
+          <a
+            href="tentang_kami.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Tentang Kami
+          </a>
+
+          <a
+            href="layanan.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Layanan
+          </a>
+
+          <a
+            href="cabang.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Cabang
+          </a>
+
+          <a
+            href="tarif.html"
+            class="nav-link active text-sm font-semibold text-navy transition"
+          >
+            Tarif
+          </a>
+
+          <a
+            href="berita.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Berita
+          </a>
+
+          <a
+            href="galeri.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Galeri
+          </a>
+
+          <a
+            href="kontak.html"
+            class="nav-link text-sm font-semibold text-slate-600 hover:text-navy transition"
+          >
+            Kontak
+          </a>
+
+        </nav>
+
+        <!-- Desktop CTA -->
+        <div class="hidden lg:flex items-center gap-2">
+          <a
+            href="kontak.html"
+            class="inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-bold text-white hover:bg-blue transition duration-300"
+          >
+            Minta Penawaran
+          </a>
+          <button type="button" title="Link tracking akan ditambahkan" class="inline-flex items-center justify-center rounded-xl border border-navy px-4 py-3 text-sm font-bold text-navy transition hover:bg-navy hover:text-white">Tracking</button>
+        </div>
+
+        <!-- Mobile Button -->
+        <button
+          id="menuButton"
+          type="button"
+          class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 text-navy hover:bg-slate-50 transition"
+          aria-label="Buka menu"
+        >
+          <svg
+            id="menuIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobileMenu" class="hidden lg:hidden">
+
+        <nav class="pb-5 pt-2 flex flex-col gap-1">
+
+          <a
+            href="index.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Beranda
+          </a>
+
+          <a
+            href="tentang_kami.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Tentang Kami
+          </a>
+
+          <a
+            href="layanan.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Layanan
+          </a>
+
+          <a
+            href="cabang.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Cabang
+          </a>
+
+          <a
+            href="tarif.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold bg-slate-50 text-navy"
+          >
+            Tarif
+          </a>
+
+          <a
+            href="berita.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Berita
+          </a>
+
+          <a
+            href="galeri.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Galeri
+          </a>
+
+          <a
+            href="kontak.html"
+            class="px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:bg-slate-50 hover:text-navy transition"
+          >
+            Kontak
+          </a>
+
+          <a
+            href="kontak.html"
+            class="mt-2 inline-flex items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-bold text-white hover:bg-blue transition"
+          >
+            Minta Penawaran
+          </a>
+
+        <button type="button" title="Link tracking akan ditambahkan" class="mt-2 inline-flex items-center justify-center rounded-xl border border-navy px-5 py-3 text-sm font-bold text-navy transition hover:bg-navy hover:text-white">Tracking</button>
+        </nav>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================== -->
+  <section class="relative pt-32 pb-20 overflow-hidden bg-mist">
+
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-blue/10 blur-3xl"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-green/10 blur-3xl"></div>
+
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl">
+
+        <span class="inline-flex items-center rounded-full bg-green/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-green">
+          Tarif Pengiriman
+        </span>
+
+        <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-navy">
+          Tarif Cargo yang
+          <span class="text-blue">Transparan & Kompetitif</span>
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-base sm:text-lg leading-8 text-slate-600">
+          Lihat estimasi tarif pengiriman Cargomii untuk berbagai tujuan
+          menggunakan layanan kapal cepat Pelni maupun kapal cargo reguler.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+
+          <a
+            href="#daftar-tarif"
+            class="inline-flex items-center justify-center rounded-xl bg-navy px-6 py-3.5 text-sm font-bold text-white hover:bg-blue transition"
+          >
+            Lihat Daftar Tarif
+          </a>
+
+          <a
+            href="#estimasi"
+            class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-bold text-navy hover:border-navy transition"
+          >
+            Minta Estimasi
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       INFO CARDS
+  ========================================================== -->
+  <section class="py-12 bg-white">
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="grid md:grid-cols-3 gap-5">
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 tariff-card">
+          <div class="w-12 h-12 rounded-xl bg-blue/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-2.21 0-4 1.12-4 2.5S9.79 13 12 13s4 1.12 4 2.5S14.21 18 12 18m0-14v2m0 14v2M5 12H3m18 0h-2"/>
+            </svg>
+          </div>
+
+          <h3 class="mt-5 text-lg font-bold text-navy">
+            Tarif Transparan
+          </h3>
+
+          <p class="mt-2 text-sm leading-6 text-slate-600">
+            Informasi tarif dan ketentuan pengiriman tersedia secara jelas.
+          </p>
+        </div>
+
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 tariff-card">
+          <div class="w-12 h-12 rounded-xl bg-green/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+
+          <h3 class="mt-5 text-lg font-bold text-navy">
+            Estimasi Lead Time
+          </h3>
+
+          <p class="mt-2 text-sm leading-6 text-slate-600">
+            Perkiraan waktu pengiriman dapat dilihat berdasarkan masing-masing tujuan.
+          </p>
+        </div>
+
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-6 tariff-card">
+          <div class="w-12 h-12 rounded-xl bg-navy/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8h2a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2h2m10 0V6a4 4 0 00-8 0v2m8 0H7"/>
+            </svg>
+          </div>
+
+          <h3 class="mt-5 text-lg font-bold text-navy">
+            Konsultasi dengan CS
+          </h3>
+
+          <p class="mt-2 text-sm leading-6 text-slate-600">
+            Butuh perhitungan lebih detail? Kirim data pengiriman langsung ke CS.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       DAFTAR TARIF
+  ========================================================== -->
+  <section id="daftar-tarif" class="py-20 bg-mist">
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="max-w-3xl mb-10">
+
+        <span class="text-sm font-bold uppercase tracking-wider text-green">
+          Daftar Tarif
+        </span>
+
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold text-navy">
+          Tarif Pengiriman Cargomii
+        </h2>
+
+        <p class="mt-4 text-slate-600 leading-7">
+          Pilih jenis layanan untuk melihat daftar tarif berdasarkan tujuan
+          pengiriman dari Tanjung Priok.
+        </p>
+
+      </div>
+
+
+      <!-- TABS -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-8">
+
+        <button
+          type="button"
+          id="tabPelni"
+          class="service-tab active rounded-xl px-6 py-4 text-left sm:text-center text-sm font-bold"
+        >
+          Kapal Cepat / Pelni
+        </button>
+
+        <button
+          type="button"
+          id="tabCargo"
+          class="service-tab rounded-xl border border-slate-200 bg-white px-6 py-4 text-left sm:text-center text-sm font-bold text-navy"
+        >
+          Kapal Cargo Reguler
+        </button>
+
+      </div>
+
+
+      <!-- =====================================================
+           TABLE PELNI
+      ====================================================== -->
+      <div id="tablePelni" class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+
+        <div class="px-6 py-6 border-b border-slate-100">
+
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div>
+              <h3 class="text-xl font-bold text-navy">
+                Tarif KG Kapal Cepat
+              </h3>
+
+              <p class="mt-1 text-sm text-slate-500">
+                Kapal Pelni · Origin: Tanjung Priok
+              </p>
+            </div>
+
+            <div class="rounded-xl bg-blue/10 px-4 py-3">
+              <p class="text-xs font-semibold text-blue">
+                Minimum tonase berbeda berdasarkan tujuan
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="table-wrap overflow-x-auto">
+
+          <table class="tariff-table w-full text-sm">
+
+            <thead>
+              <tr class="bg-navy text-white">
+
+                <th class="px-5 py-4 text-left font-bold">
+                  No
+                </th>
+
+                <th class="px-5 py-4 text-left font-bold">
+                  Tujuan
+                </th>
+
+                <th class="px-5 py-4 text-left font-bold">
+                  Tarif / KG
+                </th>
+
+                <th class="px-5 py-4 text-left font-bold">
+                  Minimal Tonase
+                </th>
+
+                <th class="px-5 py-4 text-left font-bold">
+                  Lead Time
+                </th>
+
+              </tr>
+            </thead>
+
+            <tbody class="divide-y divide-slate-100">
+
+              <tr>
+                <td class="px-5 py-3">1</td>
+                <td class="px-5 py-3 font-semibold">Sorong</td>
+                <td class="px-5 py-3">Rp 17.500</td>
+                <td class="px-5 py-3">1 KG</td>
+                <td class="px-5 py-3">6–8 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">2</td>
+                <td class="px-5 py-3 font-semibold">Jayapura</td>
+                <td class="px-5 py-3">Rp 17.500</td>
+                <td class="px-5 py-3">1 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">3</td>
+                <td class="px-5 py-3 font-semibold">Manokwari</td>
+                <td class="px-5 py-3">Rp 17.500</td>
+                <td class="px-5 py-3">1 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">4</td>
+                <td class="px-5 py-3 font-semibold">Bau Bau</td>
+                <td class="px-5 py-3">Rp 18.500</td>
+                <td class="px-5 py-3">50 KG</td>
+                <td class="px-5 py-3">5–7 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">5</td>
+                <td class="px-5 py-3 font-semibold">Makassar</td>
+                <td class="px-5 py-3">Rp 11.500</td>
+                <td class="px-5 py-3">50 KG</td>
+                <td class="px-5 py-3">3–5 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">6</td>
+                <td class="px-5 py-3 font-semibold">Biak</td>
+                <td class="px-5 py-3">Rp 18.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">7</td>
+                <td class="px-5 py-3 font-semibold">Ambon</td>
+                <td class="px-5 py-3">Rp 16.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">6–8 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">8</td>
+                <td class="px-5 py-3 font-semibold">Bitung / Manado</td>
+                <td class="px-5 py-3">Rp 16.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">9</td>
+                <td class="px-5 py-3 font-semibold">Namlea</td>
+                <td class="px-5 py-3">Rp 22.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">10</td>
+                <td class="px-5 py-3 font-semibold">Ternate</td>
+                <td class="px-5 py-3">Rp 16.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">11</td>
+                <td class="px-5 py-3 font-semibold">Wasior</td>
+                <td class="px-5 py-3">Rp 29.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">12</td>
+                <td class="px-5 py-3 font-semibold">Serui</td>
+                <td class="px-5 py-3">Rp 29.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">13</td>
+                <td class="px-5 py-3 font-semibold">Nabire</td>
+                <td class="px-5 py-3">Rp 19.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">14</td>
+                <td class="px-5 py-3 font-semibold">Fak - Fak</td>
+                <td class="px-5 py-3">Rp 29.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">7–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">15</td>
+                <td class="px-5 py-3 font-semibold">Tual</td>
+                <td class="px-5 py-3">Rp 27.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">6–8 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">16</td>
+                <td class="px-5 py-3 font-semibold">Kaimana</td>
+                <td class="px-5 py-3">Rp 29.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">6–8 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">17</td>
+                <td class="px-5 py-3 font-semibold">Batam</td>
+                <td class="px-5 py-3">Rp 10.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">3–5 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">18</td>
+                <td class="px-5 py-3 font-semibold">Dobo</td>
+                <td class="px-5 py-3">Rp 28.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">6–8 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">19</td>
+                <td class="px-5 py-3 font-semibold">Banda</td>
+                <td class="px-5 py-3">Rp 28.000</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">6–8 Hari</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================================
+           TABLE CARGO
+      ====================================================== -->
+      <div id="tableCargo" class="hidden-table bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+
+        <div class="px-6 py-6 border-b border-slate-100">
+
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+            <div>
+              <h3 class="text-xl font-bold text-navy">
+                Tarif KG Reguler
+              </h3>
+
+              <p class="mt-1 text-sm text-slate-500">
+                Kapal Cargo · Origin: Tanjung Priok
+              </p>
+            </div>
+
+            <div class="rounded-xl bg-green/10 px-4 py-3">
+              <p class="text-xs font-semibold text-green">
+                Cocok untuk pengiriman cargo dalam jumlah besar
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="table-wrap overflow-x-auto">
+
+          <table class="tariff-table w-full text-sm">
+
+            <thead>
+              <tr class="bg-navy text-white">
+
+                <th class="px-5 py-4 text-left font-bold">No</th>
+                <th class="px-5 py-4 text-left font-bold">Tujuan</th>
+                <th class="px-5 py-4 text-left font-bold">Tarif / KG</th>
+                <th class="px-5 py-4 text-left font-bold">Minimal Tonase</th>
+                <th class="px-5 py-4 text-left font-bold">Lead Time</th>
+
+              </tr>
+            </thead>
+
+            <tbody class="divide-y divide-slate-100">
+
+              <tr>
+                <td class="px-5 py-3">1</td>
+                <td class="px-5 py-3 font-semibold">Sorong</td>
+                <td class="px-5 py-3">Rp 9.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">2</td>
+                <td class="px-5 py-3 font-semibold">Jayapura</td>
+                <td class="px-5 py-3">Rp 9.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">20–25 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">3</td>
+                <td class="px-5 py-3 font-semibold">Manokwari</td>
+                <td class="px-5 py-3">Rp 9.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–23 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">4</td>
+                <td class="px-5 py-3 font-semibold">Biak</td>
+                <td class="px-5 py-3">Rp 11.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–23 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">5</td>
+                <td class="px-5 py-3 font-semibold">Merauke</td>
+                <td class="px-5 py-3">Rp 12.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–23 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">6</td>
+                <td class="px-5 py-3 font-semibold">Timika</td>
+                <td class="px-5 py-3">Rp 12.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–23 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">7</td>
+                <td class="px-5 py-3 font-semibold">Bau Bau</td>
+                <td class="px-5 py-3">Rp 9.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">10–15 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">8</td>
+                <td class="px-5 py-3 font-semibold">Makassar</td>
+                <td class="px-5 py-3">Rp 5.500</td>
+                <td class="px-5 py-3">50 KG</td>
+                <td class="px-5 py-3">5–9 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">9</td>
+                <td class="px-5 py-3 font-semibold">Ambon</td>
+                <td class="px-5 py-3">Rp 8.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">10</td>
+                <td class="px-5 py-3 font-semibold">Bitung / Manado</td>
+                <td class="px-5 py-3">Rp 8.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">11</td>
+                <td class="px-5 py-3 font-semibold">Namlea</td>
+                <td class="px-5 py-3">Rp 15.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">12</td>
+                <td class="px-5 py-3 font-semibold">Ternate</td>
+                <td class="px-5 py-3">Rp 8.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">13</td>
+                <td class="px-5 py-3 font-semibold">Wasior</td>
+                <td class="px-5 py-3">Rp 18.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">20–25 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">14</td>
+                <td class="px-5 py-3 font-semibold">Serui</td>
+                <td class="px-5 py-3">Rp 18.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">20–25 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">15</td>
+                <td class="px-5 py-3 font-semibold">Nabire</td>
+                <td class="px-5 py-3">Rp 12.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">20–25 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">16</td>
+                <td class="px-5 py-3 font-semibold">Fak - Fak</td>
+                <td class="px-5 py-3">Rp 16.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">20–25 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">17</td>
+                <td class="px-5 py-3 font-semibold">Tual</td>
+                <td class="px-5 py-3">Rp 13.500</td>
+                <td class="px-5 py-3">100 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">18</td>
+                <td class="px-5 py-3 font-semibold">Kaimana</td>
+                <td class="px-5 py-3">Rp 17.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">20–25 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">19</td>
+                <td class="px-5 py-3 font-semibold">Batam</td>
+                <td class="px-5 py-3">Rp 7.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">5–7 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">20</td>
+                <td class="px-5 py-3 font-semibold">Dobo</td>
+                <td class="px-5 py-3">Rp 15.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+              <tr>
+                <td class="px-5 py-3">21</td>
+                <td class="px-5 py-3 font-semibold">Banda</td>
+                <td class="px-5 py-3">Rp 17.500</td>
+                <td class="px-5 py-3">250 KG</td>
+                <td class="px-5 py-3">15–20 Hari</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+      <!-- NOTE -->
+      <div class="mt-6 rounded-2xl bg-white border border-slate-200 p-6">
+
+        <h4 class="font-bold text-navy">
+          Ketentuan Pengiriman
+        </h4>
+
+        <div class="mt-4 grid md:grid-cols-2 gap-x-10 gap-y-3 text-sm leading-6 text-slate-600">
+
+          <p>
+            <span class="font-bold text-navy">01.</span>
+            Jika berat aktual lebih ringan dibanding berat volume,
+            perhitungan dapat menggunakan berat volume:
+            <span class="font-semibold">(Panjang × Lebar × Tinggi) / 4000</span>.
+          </p>
+
+          <p>
+            <span class="font-bold text-navy">02.</span>
+            Pengiriman PTD (Port To Door) dalam kota, free pick up
+            minimal tonase 300 KG ke atas.
+          </p>
+
+          <p>
+            <span class="font-bold text-navy">03.</span>
+            Tarif belum termasuk PPN.
+          </p>
+
+          <p>
+            <span class="font-bold text-navy">04.</span>
+            Barang/paket wajib diasuransikan oleh pemilik barang.
+            Jika tidak diasuransikan, maksimal penggantian barang/paket
+            senilai Rp 500.000.
+          </p>
+
+          <p>
+            <span class="font-bold text-navy">05.</span>
+            Waktu pengiriman (Lead Time) terhitung mulai dari
+            tanggal keberangkatan kapal.
+          </p>
+
+          <p>
+            <span class="font-bold text-navy">06.</span>
+            Barang pecah belah disarankan menggunakan packing kayu
+            dan akan dikenakan biaya packing tambahan.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       FORM ESTIMASI
+  ========================================================== -->
+  <section id="estimasi" class="py-20 bg-white">
+
+    <div class="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-2xl mx-auto">
+
+        <span class="inline-flex rounded-full bg-green/10 px-4 py-2 text-xs font-bold uppercase tracking-wider text-green">
+          Minta Estimasi
+        </span>
+
+        <h2 class="mt-5 text-3xl sm:text-4xl font-bold text-navy">
+          Butuh Estimasi Tarif?
+        </h2>
+
+        <p class="mt-4 text-slate-600 leading-7">
+          Isi informasi pengiriman di bawah ini. Setelah dikirim,
+          data akan diteruskan langsung ke WhatsApp CS Cargomii
+          untuk mendapatkan estimasi tarif.
+        </p>
+
+      </div>
+
+
+      <!-- FORM CARD -->
+      <div class="mt-12 rounded-3xl border border-slate-200 bg-white shadow-xl shadow-navy/5 overflow-hidden">
+
+        <div class="h-2 bg-gradient-to-r from-navy via-blue to-green"></div>
+
+        <form id="estimateForm" class="p-6 sm:p-8 lg:p-10">
+
+          <div class="grid md:grid-cols-2 gap-6">
+
+            <!-- NAMA -->
+            <div>
+              <label for="nama" class="block text-sm font-bold text-navy mb-2">
+                Nama
+              </label>
+
+              <input
+                id="nama"
+                type="text"
+                required
+                placeholder="Masukkan nama Anda"
+                class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm text-ink placeholder:text-slate-400"
+              />
+            </div>
+
+
+            <!-- WHATSAPP -->
+            <div>
+              <label for="whatsapp" class="block text-sm font-bold text-navy mb-2">
+                Nomor WhatsApp
+              </label>
+
+              <input
+                id="whatsapp"
+                type="tel"
+                required
+                placeholder="Contoh: 081234567890"
+                class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm text-ink placeholder:text-slate-400"
+              />
+            </div>
+
+
+            <!-- JENIS PENGIRIMAN -->
+            <div>
+              <label for="jenis" class="block text-sm font-bold text-navy mb-2">
+                Jenis Pengiriman
+              </label>
+
+              <select
+                id="jenis"
+                required
+                class="form-select w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-ink"
+              >
+                <option value="">Pilih jenis pengiriman</option>
+                <option value="Kapal Cepat / Pelni">
+                  Kapal Cepat / Pelni
+                </option>
+                <option value="Kapal Cargo Reguler">
+                  Kapal Cargo Reguler
+                </option>
+              </select>
+            </div>
+
+
+            <!-- ASAL -->
+            <div>
+              <label for="asal" class="block text-sm font-bold text-navy mb-2">
+                Asal Pengiriman
+              </label>
+
+              <input
+                id="asal"
+                type="text"
+                value="Tanjung Priok, Jakarta"
+                required
+                class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm text-ink"
+              />
+            </div>
+
+
+            <!-- TUJUAN -->
+            <div>
+              <label for="tujuan" class="block text-sm font-bold text-navy mb-2">
+                Tujuan Pengiriman
+              </label>
+
+              <select
+                id="tujuan"
+                required
+                class="form-select w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-ink"
+              >
+                <option value="">Pilih tujuan</option>
+
+                <option>Sorong</option>
+                <option>Jayapura</option>
+                <option>Manokwari</option>
+                <option>Biak</option>
+                <option>Merauke</option>
+                <option>Timika</option>
+                <option>Bau Bau</option>
+                <option>Makassar</option>
+                <option>Ambon</option>
+                <option>Bitung / Manado</option>
+                <option>Namlea</option>
+                <option>Ternate</option>
+                <option>Wasior</option>
+                <option>Serui</option>
+                <option>Nabire</option>
+                <option>Fak - Fak</option>
+                <option>Tual</option>
+                <option>Kaimana</option>
+                <option>Batam</option>
+                <option>Dobo</option>
+                <option>Banda</option>
+
+              </select>
+            </div>
+
+
+            <!-- BERAT -->
+            <div>
+              <label for="berat" class="block text-sm font-bold text-navy mb-2">
+                Berat Barang
+              </label>
+
+              <div class="relative">
+
+                <input
+                  id="berat"
+                  type="number"
+                  min="1"
+                  required
+                  placeholder="Masukkan berat"
+                  class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 pr-16 text-sm text-ink placeholder:text-slate-400"
+                />
+
+                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-400">
+                  KG
+                </span>
+
+              </div>
+            </div>
+
+
+            <!-- LAYANAN -->
+            <div>
+              <label for="layanan" class="block text-sm font-bold text-navy mb-2">
+                Jenis Layanan
+              </label>
+
+              <select
+                id="layanan"
+                class="form-select w-full rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-sm text-ink"
+              >
+                <option value="">Pilih layanan</option>
+                <option>Port To Port</option>
+                <option>Port To Door</option>
+                <option>Door To Door</option>
+                <option>Belum Menentukan</option>
+              </select>
+            </div>
+
+
+            <!-- DIMENSI -->
+            <div class="md:col-span-2">
+
+              <label class="block text-sm font-bold text-navy mb-2">
+                Dimensi Barang
+                <span class="font-normal text-slate-400">
+                  (opsional)
+                </span>
+              </label>
+
+              <div class="grid grid-cols-3 gap-3">
+
+                <input
+                  id="panjang"
+                  type="number"
+                  min="0"
+                  placeholder="Panjang (cm)"
+                  class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm"
+                />
+
+                <input
+                  id="lebar"
+                  type="number"
+                  min="0"
+                  placeholder="Lebar (cm)"
+                  class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm"
+                />
+
+                <input
+                  id="tinggi"
+                  type="number"
+                  min="0"
+                  placeholder="Tinggi (cm)"
+                  class="form-input w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm"
+                />
+
+              </div>
+
+            </div>
+
+
+            <!-- CATATAN -->
+            <div class="md:col-span-2">
+
+              <label for="catatan" class="block text-sm font-bold text-navy mb-2">
+                Catatan
+                <span class="font-normal text-slate-400">
+                  (opsional)
+                </span>
+              </label>
+
+              <textarea
+                id="catatan"
+                rows="4"
+                placeholder="Contoh: barang elektronik, membutuhkan packing kayu, estimasi jadwal keberangkatan, dan lain-lain."
+                class="form-textarea w-full rounded-xl border border-slate-200 px-4 py-3.5 text-sm text-ink placeholder:text-slate-400 resize-none"
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <!-- DISCLAIMER -->
+          <div class="mt-8 rounded-2xl bg-mist p-5">
+
+            <div class="flex gap-3">
+
+              <div class="shrink-0 mt-0.5">
+
+                <svg
+                  class="w-5 h-5 text-blue"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"
+                  />
+                </svg>
+
+              </div>
+
+              <p class="text-xs sm:text-sm leading-6 text-slate-600">
+                Tarif yang tercantum pada halaman ini merupakan informasi
+                tarif berdasarkan daftar yang tersedia. Estimasi akhir dapat
+                menyesuaikan berat, volume, jenis barang, layanan, dan
+                ketentuan pengiriman.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+          <button
+            type="submit"
+            class="mt-7 w-full inline-flex items-center justify-center gap-3 rounded-xl bg-green px-6 py-4 text-sm font-bold text-white hover:brightness-95 transition"
+          >
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path d="M20.52 3.48A11.86 11.86 0 0012.08 0C5.53 0 .2 5.33.2 11.88c0 2.09.55 4.13 1.59 5.92L.1 24l6.34-1.66a11.86 11.86 0 005.64 1.43h.01c6.55 0 11.88-5.33 11.88-11.88 0-3.18-1.24-6.16-3.45-8.41zM12.09 21.76h-.01a9.84 9.84 0 01-5.02-1.38l-.36-.21-3.76.99 1-3.67-.23-.38a9.83 9.83 0 01-1.51-5.23C2.2 6.45 6.64 2 12.09 2a9.8 9.8 0 016.96 2.89 9.8 9.8 0 012.89 6.97c0 5.45-4.44 9.9-9.85 9.9zm5.42-7.42c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.46-.89-.79-1.49-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1-1.03 2.45s1.06 2.84 1.21 3.04c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.67.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/>
+            </svg>
+
+            Kirim Permintaan ke WhatsApp CS
+
+          </button>
+
+          <p class="mt-4 text-center text-xs text-slate-400">
+            Anda akan diarahkan ke WhatsApp untuk melanjutkan komunikasi dengan CS Cargomii.
+          </p>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       CTA
+  ========================================================== -->
+  <section class="py-20 bg-navy">
+
+    <div class="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+
+      <span class="text-sm font-bold uppercase tracking-wider text-green">
+        Butuh Bantuan?
+      </span>
+
+      <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">
+        Konsultasikan Kebutuhan Pengiriman Anda
+      </h2>
+
+      <p class="mt-5 max-w-2xl mx-auto text-slate-300 leading-7">
+        Tim Cargomii siap membantu memberikan informasi mengenai
+        tarif, layanan, tujuan, dan kebutuhan pengiriman Anda.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+
+        <a
+          href="#estimasi"
+          class="inline-flex items-center justify-center rounded-xl bg-green px-6 py-3.5 text-sm font-bold text-white hover:brightness-95 transition"
+        >
+          Minta Estimasi Tarif
+        </a>
+
+        <a
+          href="kontak.html"
+          class="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-bold text-white hover:bg-white/15 transition"
+        >
+          Hubungi Kami
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
+  <footer class="bg-white text-navy border-t border-slate-200">
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-14">
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
+
+      <!-- BRAND -->
+      <div>
+
+        <a href="index.html" class="inline-flex items-center">
+          <img
+            src="images/logo_cargomii_header_cropped.png"
+            alt="Cargomii"
+            class="h-11 w-auto object-contain"
+          />
+        </a>
+
+        <p class="mt-5 max-w-sm text-sm leading-7 text-slate-600">
+          Solusi cargo dan logistik untuk kebutuhan pengiriman
+          yang aman, cepat, dan terpercaya di seluruh Indonesia.
+        </p>
+
+        <div
+          class="mt-6 inline-flex items-center gap-2 rounded-full
+                 border border-slate-200 bg-slate-50 px-4 py-2"
+        >
+          <span class="flex h-2 w-2 rounded-full bg-green"></span>
+
+          <span class="text-xs font-semibold text-slate-600">
+            Solusi Cargo & Logistics
+          </span>
+        </div>
+
+      </div>
+
+
+      <!-- PERUSAHAAN -->
+      <div>
+
+        <h3 class="text-sm font-bold text-navy">
+          Perusahaan
+        </h3>
+
+        <div class="mt-5 flex flex-col gap-3.5 text-sm">
+
+          <a
+            href="index.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Beranda
+          </a>
+
+          <a
+            href="tentang_kami.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Tentang Kami
+          </a>
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Layanan
+          </a>
+
+          <a
+            href="cabang.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Cabang
+          </a>
+
+          <a
+            href="tarif.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Tarif
+          </a>
+
+          <a
+            href="berita.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Berita
+          </a>
+
+          <a
+            href="galeri.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Galeri
+          </a>
+
+          <a
+            href="kontak.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Kontak
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- LAYANAN -->
+      <div>
+
+        <h3 class="text-sm font-bold text-navy">
+          Layanan
+        </h3>
+
+        <div class="mt-5 flex flex-col gap-3.5 text-sm">
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Cargo Laut
+          </a>
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Cargo Darat
+          </a>
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Cargo Udara
+          </a>
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Cargo Kapal Pelni
+          </a>
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Kirim Alat Berat
+          </a>
+
+          <a
+            href="layanan.html"
+            class="text-slate-600 hover:text-blue transition"
+          >
+            Kirim Kendaraan
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- MARKETING -->
+      <div>
+
+        <h3 class="text-sm font-bold text-navy">
+          Marketing
+        </h3>
+
+        <p class="mt-5 text-sm leading-6 text-slate-500">
+          Hubungi tim marketing Cargomii melalui WhatsApp.
+        </p>
+
+        <div class="mt-5 space-y-4">
+
+          <a
+            href="https://wa.me/6285310845304"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3"
+          >
+
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-green/10 text-green
+                     group-hover:bg-green group-hover:text-white transition"
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                  -.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
+                  1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                  -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297
+                  -.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174
+                  .198-.298.298-.497.099-.198.05-.372-.025-.521
+                  -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5
+                  -.669-.51l-.57-.01c-.198 0-.52.074-.792.372
+                  -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065
+                  2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487
+                  .709.306 1.262.489 1.694.626.712.227 1.36.195
+                  1.872.118.571-.085 1.758-.719 2.006-1.413
+                  .248-.694.248-1.289.173-1.413-.074-.124-.272-.198
+                  -.57-.347z"
+                />
+
+                <path
+                  d="M20.52 3.449A11.815 11.815 0 0012.04 0
+                  C5.495 0 .16 5.335.157 11.88c0 2.096.547 4.142
+                  1.588 5.945L.057 24l6.31-1.654a11.92 11.92 0 005.67
+                  1.445h.005c6.543 0 11.88-5.335 11.883-11.88
+                  a11.815 11.815 0 00-3.405-8.462zm-8.48 18.343h-.004
+                  a9.918 9.918 0 01-5.058-1.385l-.362-.215-3.744.982
+                  1-3.648-.236-.374a9.9 9.9 0 01-1.51-5.272
+                  C2.13 6.78 6.58 2.33 12.045 2.33a9.85 9.85 0 017.02
+                  2.91 9.85 9.85 0 012.904 7.015c-.003 5.465-4.453
+                  9.91-9.929 9.91z"
+                />
+              </svg>
+
+            </span>
+
+            <div>
+
+              <p class="text-xs text-slate-400">
+                Pena Cargomii
+              </p>
+
+              <p class="mt-0.5 text-sm font-semibold text-navy">
+                +62 853-1084-5304
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://wa.me/628119695360"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3"
+          >
+
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-green/10 text-green
+                     group-hover:bg-green group-hover:text-white transition"
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                  -.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
+                  1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                  -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297
+                  -.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174
+                  .198-.298.298-.497.099-.198.05-.372-.025-.521
+                  -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5
+                  -.669-.51l-.57-.01c-.198 0-.52.074-.792.372
+                  -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065
+                  2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487
+                  .709.306 1.262.489 1.694.626.712.227 1.36.195
+                  1.872.118.571-.085 1.758-.719 2.006-1.413
+                  .248-.694.248-1.289.173-1.413-.074-.124-.272-.198
+                  -.57-.347z"
+                />
+
+                <path
+                  d="M20.52 3.449A11.815 11.815 0 0012.04 0
+                  C5.495 0 .16 5.335.157 11.88c0 2.096.547 4.142
+                  1.588 5.945L.057 24l6.31-1.654a11.92 11.92 0 005.67
+                  1.445h.005c6.543 0 11.88-5.335 11.883-11.88
+                  a11.815 11.815 0 00-3.405-8.462zm-8.48 18.343h-.004
+                  a9.918 9.918 0 01-5.058-1.385l-.362-.215-3.744.982
+                  1-3.648-.236-.374a9.9 9.9 0 01-1.51-5.272
+                  C2.13 6.78 6.58 2.33 12.045 2.33a9.85 9.85 0 017.02
+                  2.91 9.85 9.85 0 012.904 7.015c-.003 5.465-4.453
+                  9.91-9.929 9.91z"
+                />
+              </svg>
+
+            </span>
+
+            <div>
+
+              <p class="text-xs text-slate-400">
+                Nisa Cargomii
+              </p>
+
+              <p class="mt-0.5 text-sm font-semibold text-navy">
+                +62 811-9695-360
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://wa.me/628111819123"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3"
+          >
+
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-green/10 text-green
+                     group-hover:bg-green group-hover:text-white transition"
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                  -.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
+                  1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                  -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297
+                  -.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174
+                  .198-.298.298-.497.099-.198.05-.372-.025-.521
+                  -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5
+                  -.669-.51l-.57-.01c-.198 0-.52.074-.792.372
+                  -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065
+                  2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487
+                  .709.306 1.262.489 1.694.626.712.227 1.36.195
+                  1.872.118.571-.085 1.758-.719 2.006-1.413
+                  .248-.694.248-1.289.173-1.413-.074-.124-.272-.198
+                  -.57-.347z"
+                />
+
+                <path
+                  d="M20.52 3.449A11.815 11.815 0 0012.04 0
+                  C5.495 0 .16 5.335.157 11.88c0 2.096.547 4.142
+                  1.588 5.945L.057 24l6.31-1.654a11.92 11.92 0 005.67
+                  1.445h.005c6.543 0 11.88-5.335 11.883-11.88
+                  a11.815 11.815 0 00-3.405-8.462zm-8.48 18.343h-.004
+                  a9.918 9.918 0 01-5.058-1.385l-.362-.215-3.744.982
+                  1-3.648-.236-.374a9.9 9.9 0 01-1.51-5.272
+                  C2.13 6.78 6.58 2.33 12.045 2.33a9.85 9.85 0 017.02
+                  2.91 9.85 9.85 0 012.904 7.015c-.003 5.465-4.453
+                  9.91-9.929 9.91z"
+                />
+              </svg>
+
+            </span>
+
+            <div>
+
+              <p class="text-xs text-slate-400">
+                Okta Cargomii
+              </p>
+
+              <p class="mt-0.5 text-sm font-semibold text-navy">
+                +62 811-1819-123
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://wa.me/6281111829825"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3"
+          >
+
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-green/10 text-green
+                     group-hover:bg-green group-hover:text-white transition"
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                  -.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
+                  1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                  -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297
+                  -.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174
+                  .198-.298.298-.497.099-.198.05-.372-.025-.521
+                  -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5
+                  -.669-.51l-.57-.01c-.198 0-.52.074-.792.372
+                  -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065
+                  2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487
+                  .709.306 1.262.489 1.694.626.712.227 1.36.195
+                  1.872.118.571-.085 1.758-.719 2.006-1.413
+                  .248-.694.248-1.289.173-1.413-.074-.124-.272-.198
+                  -.57-.347z"
+                />
+
+                <path
+                  d="M20.52 3.449A11.815 11.815 0 0012.04 0
+                  C5.495 0 .16 5.335.157 11.88c0 2.096.547 4.142
+                  1.588 5.945L.057 24l6.31-1.654a11.92 11.92 0 005.67
+                  1.445h.005c6.543 0 11.88-5.335 11.883-11.88
+                  a11.815 11.815 0 00-3.405-8.462zm-8.48 18.343h-.004
+                  a9.918 9.918 0 01-5.058-1.385l-.362-.215-3.744.982
+                  1-3.648-.236-.374a9.9 9.9 0 01-1.51-5.272
+                  C2.13 6.78 6.58 2.33 12.045 2.33a9.85 9.85 0 017.02
+                  2.91 9.85 9.85 0 012.904 7.015c-.003 5.465-4.453
+                  9.91-9.929 9.91z"
+                />
+              </svg>
+
+            </span>
+
+            <div>
+
+              <p class="text-xs text-slate-400">
+                Sabila Cargomii
+              </p>
+
+              <p class="mt-0.5 text-sm font-semibold text-navy">
+                +62 811-1182-9825
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://wa.me/628111378365"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3"
+          >
+
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-green/10 text-green
+                     group-hover:bg-green group-hover:text-white transition"
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                  -.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
+                  1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                  -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297
+                  -.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174
+                  .198-.298.298-.497.099-.198.05-.372-.025-.521
+                  -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5
+                  -.669-.51l-.57-.01c-.198 0-.52.074-.792.372
+                  -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065
+                  2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487
+                  .709.306 1.262.489 1.694.626.712.227 1.36.195
+                  1.872.118.571-.085 1.758-.719 2.006-1.413
+                  .248-.694.248-1.289.173-1.413-.074-.124-.272-.198
+                  -.57-.347z"
+                />
+
+                <path
+                  d="M20.52 3.449A11.815 11.815 0 0012.04 0
+                  C5.495 0 .16 5.335.157 11.88c0 2.096.547 4.142
+                  1.588 5.945L.057 24l6.31-1.654a11.92 11.92 0 005.67
+                  1.445h.005c6.543 0 11.88-5.335 11.883-11.88
+                  a11.815 11.815 0 00-3.405-8.462zm-8.48 18.343h-.004
+                  a9.918 9.918 0 01-5.058-1.385l-.362-.215-3.744.982
+                  1-3.648-.236-.374a9.9 9.9 0 01-1.51-5.272
+                  C2.13 6.78 6.58 2.33 12.045 2.33a9.85 9.85 0 017.02
+                  2.91 9.85 9.85 0 012.904 7.015c-.003 5.465-4.453
+                  9.91-9.929 9.91z"
+                />
+              </svg>
+
+            </span>
+
+            <div>
+
+              <p class="text-xs text-slate-400">
+                Jesika Cargomii
+              </p>
+
+              <p class="mt-0.5 text-sm font-semibold text-navy">
+                +62 811-1378-365
+              </p>
+
+            </div>
+
+          </a>
+
+          <a
+            href="https://wa.me/628111368365"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-3"
+          >
+
+            <span
+              class="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-xl bg-green/10 text-green
+                     group-hover:bg-green group-hover:text-white transition"
+            >
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967
+                  -.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
+                  1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463
+                  -2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297
+                  -.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174
+                  .198-.298.298-.497.099-.198.05-.372-.025-.521
+                  -.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5
+                  -.669-.51l-.57-.01c-.198 0-.52.074-.792.372
+                  -.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065
+                  2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487
+                  .709.306 1.262.489 1.694.626.712.227 1.36.195
+                  1.872.118.571-.085 1.758-.719 2.006-1.413
+                  .248-.694.248-1.289.173-1.413-.074-.124-.272-.198
+                  -.57-.347z"
+                />
+
+                <path
+                  d="M20.52 3.449A11.815 11.815 0 0012.04 0
+                  C5.495 0 .16 5.335.157 11.88c0 2.096.547 4.142
+                  1.588 5.945L.057 24l6.31-1.654a11.92 11.92 0 005.67
+                  1.445h.005c6.543 0 11.88-5.335 11.883-11.88
+                  a11.815 11.815 0 00-3.405-8.462zm-8.48 18.343h-.004
+                  a9.918 9.918 0 01-5.058-1.385l-.362-.215-3.744.982
+                  1-3.648-.236-.374a9.9 9.9 0 01-1.51-5.272
+                  C2.13 6.78 6.58 2.33 12.045 2.33a9.85 9.85 0 017.02
+                  2.91 9.85 9.85 0 012.904 7.015c-.003 5.465-4.453
+                  9.91-9.929 9.91z"
+                />
+              </svg>
+
+            </span>
+
+            <div>
+
+              <p class="text-xs text-slate-400">
+                Amel Cargomii
+              </p>
+
+              <p class="mt-0.5 text-sm font-semibold text-navy">
+                +62 811-1368-365
+              </p>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+    <div class="mt-12 pt-7 border-t border-slate-200">
+
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+      >
+
+        <p class="text-xs text-slate-500">
+          © 2026 Cargomii. All rights reserved.
+        </p>
+
+        <div class="flex items-center gap-2">
+
+          <span class="w-2 h-2 rounded-full bg-green"></span>
+
+          <p class="text-xs text-slate-500">
+            Cargo & Logistics Solutions
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+  <script>
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const menuIcon = document.getElementById("menuIcon");
+
+    menuButton.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+      if (mobileMenu.classList.contains("hidden")) {
+
+        menuIcon.innerHTML = `
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        `;
+
+      } else {
+
+        menuIcon.innerHTML = `
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        `;
+
+      }
+
+    });
+
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+
+        menuIcon.innerHTML = `
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        `;
+
+      });
+
+    });
+
+
+    /* =========================
+       TARIF TABS
+    ========================== */
+
+    const tabPelni = document.getElementById("tabPelni");
+    const tabCargo = document.getElementById("tabCargo");
+
+    const tablePelni = document.getElementById("tablePelni");
+    const tableCargo = document.getElementById("tableCargo");
+
+
+    tabPelni.addEventListener("click", () => {
+
+      tabPelni.classList.add("active");
+
+      tabCargo.classList.remove("active");
+
+      tablePelni.classList.remove("hidden-table");
+
+      tableCargo.classList.add("hidden-table");
+
+    });
+
+
+    tabCargo.addEventListener("click", () => {
+
+      tabCargo.classList.add("active");
+
+      tabPelni.classList.remove("active");
+
+      tableCargo.classList.remove("hidden-table");
+
+      tablePelni.classList.add("hidden-table");
+
+    });
+
+
+    /* =========================
+       WHATSAPP FORM
+    ========================== */
+
+    const estimateForm = document.getElementById("estimateForm");
+
+    estimateForm.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+
+      /*
+        NOMOR WHATSAPP CS CARGOMII
+
+        Format:
+        628xxxxxxxxxx
+
+        Tanpa:
+        +
+        spasi
+        tanda -
+      */
+
+      const nomorCS = "6285310845304";
+
+
+      const nama =
+        document.getElementById("nama").value.trim();
+
+      const whatsapp =
+        document.getElementById("whatsapp").value.trim();
+
+      const jenis =
+        document.getElementById("jenis").value;
+
+      const asal =
+        document.getElementById("asal").value.trim();
+
+      const tujuan =
+        document.getElementById("tujuan").value;
+
+      const berat =
+        document.getElementById("berat").value;
+
+      const layanan =
+        document.getElementById("layanan").value || "-";
+
+      const panjang =
+        document.getElementById("panjang").value;
+
+      const lebar =
+        document.getElementById("lebar").value;
+
+      const tinggi =
+        document.getElementById("tinggi").value;
+
+      const catatan =
+        document.getElementById("catatan").value.trim() || "-";
+
+
+      let dimensi = "-";
+
+      if (panjang && lebar && tinggi) {
+
+        dimensi =
+          `${panjang} cm × ${lebar} cm × ${tinggi} cm`;
+
+      }
+
+
+      /*
+        TEMPLATE PESAN WHATSAPP
+      */
+
+      const pesan = `Halo Cargomii, saya ingin meminta estimasi tarif pengiriman.
+
+Nama: ${nama}
+No. WhatsApp: ${whatsapp}
+
+Jenis Pengiriman: ${jenis}
+
+Asal Pengiriman: ${asal}
+Tujuan Pengiriman: ${tujuan}
+Berat Barang: ${berat} KG
+Dimensi: ${dimensi}
+Jenis Layanan: ${layanan}
+
+Catatan:
+${catatan}
+
+Mohon dibantu untuk estimasi tarif dan informasi jadwal pengiriman.
+
+Terima kasih.`;
+
+
+      const url =
+        `https://wa.me/${nomorCS}?text=${encodeURIComponent(pesan)}`;
+
+
+      window.open(url, "_blank");
+
+    });
+
+  </script>
+
+  <!-- FLOATING WHATSAPP: pilih marketing -->
+  <div id="floatingWhatsapp" class="fixed bottom-6 right-6 z-50">
+    <div id="whatsappPanel" role="region" aria-label="Pilihan kontak marketing Cargomii" class="absolute bottom-[4.5rem] right-0 hidden w-[min(21rem,calc(100vw-3rem))] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
+      <div class="bg-navy px-4 py-3 text-white">
+        <p class="font-bold">Hubungi Marketing Cargomii</p>
+        <p class="text-xs text-white/80">Pilih marketing untuk mulai chat WhatsApp</p>
+      </div>
+      <div class="max-h-[min(24rem,55vh)] overflow-y-auto p-2">
+        <a href="https://wa.me/6285310845304?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Pena Cargomii, 0853-1084-5304">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">P</span><img src="images/marketing-pena.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Pena Cargomii</span><span class="block text-xs text-slate-500">0853-1084-5304</span></span></span><span class="text-green" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/628119695360?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Nisa Cargomii, 0811-9695-360">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">N</span><img src="images/marketing-nisa.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Nisa Cargomii</span><span class="block text-xs text-slate-500">0811-9695-360</span></span></span><span class="text-green" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/628111819123?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Okta Cargomii, 0811-1819-123">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">O</span><img src="images/marketing-okta.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Okta Cargomii</span><span class="block text-xs text-slate-500">0811-1819-123</span></span></span><span class="text-green" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/6281111829825?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Sabila Cargomii, 0811-1182-9825">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">S</span><img src="images/marketing-sabila.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Sabila Cargomii</span><span class="block text-xs text-slate-500">0811-1182-9825</span></span></span><span class="text-green" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/628111378365?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Jesika Cargomii, 0811-1378-365">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">J</span><img src="images/marketing-jesika.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Jesika Cargomii</span><span class="block text-xs text-slate-500">0811-1378-365</span></span></span><span class="text-green" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/628111368365?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Amel Cargomii, 0811-1368-365">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">A</span><img src="images/marketing-amel.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Amel Cargomii</span><span class="block text-xs text-slate-500">0811-1368-365</span></span></span><span class="text-green" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/6281282496789?text=Halo%20Marketing%20Cargomii%2C%20saya%20ingin%20konsultasi%20mengenai%20pengiriman." target="_blank" rel="noopener noreferrer" class="flex items-center justify-between rounded-xl px-3 py-2.5 transition hover:bg-green/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-green" aria-label="Chat WhatsApp Rani Cargomii, 0812-8249-6789">
+          <span class="flex min-w-0 items-center gap-3"><span class="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-navy/10 text-sm font-bold text-navy"><span aria-hidden="true">R</span><img src="images/marketing-rani.png" alt="" loading="lazy" class="absolute inset-0 h-full w-full object-cover" style="transform: scale(2.9); transform-origin: 85% 16%;" onerror="this.remove()"></span><span class="min-w-0"><span class="block text-sm font-semibold text-navy">Rani Cargomii</span><span class="block text-xs text-slate-500">0812-8249-6789</span></span></span>
+        </a>
+      </div>
+    </div>
+    <button id="whatsappToggle" type="button" aria-label="Pilih kontak WhatsApp marketing" aria-controls="whatsappPanel" aria-expanded="false" class="ml-auto flex h-14 w-14 items-center justify-center rounded-full bg-green text-white shadow-lg transition hover:scale-105 hover:bg-[#3cab17] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green">
+      <svg viewBox="0 0 24 24" class="h-7 w-7" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.04 2a9.91 9.91 0 0 0-8.51 15.02L2 22l5.13-1.5A9.91 9.91 0 1 0 12.04 2Zm0 17.96h-.01a8.02 8.02 0 0 1-4.08-1.12l-.29-.17-3.05.89.91-2.97-.19-.3a8.02 8.02 0 1 1 6.71 3.67Zm4.4-6.02c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.74-1.8-.19-.46-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.39 1.37.5.58.18 1.1.15 1.51.09.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/></svg>
+    </button>
+  </div>
+
+
+  <script>
+    const whatsappToggle = document.getElementById("whatsappToggle");
+    const whatsappPanel = document.getElementById("whatsappPanel");
+    const floatingWhatsapp = document.getElementById("floatingWhatsapp");
+    function setWhatsappPanel(open) {
+      whatsappPanel.classList.toggle("hidden", !open);
+      whatsappToggle.setAttribute("aria-expanded", String(open));
+    }
+    whatsappToggle.addEventListener("click", () => {
+      setWhatsappPanel(whatsappPanel.classList.contains("hidden"));
+    });
+    document.addEventListener("click", (event) => {
+      if (!floatingWhatsapp.contains(event.target)) setWhatsappPanel(false);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !whatsappPanel.classList.contains("hidden")) {
+        setWhatsappPanel(false);
+        whatsappToggle.focus();
+      }
+    });
+
+  </script>
+
+</body>
+</html>
